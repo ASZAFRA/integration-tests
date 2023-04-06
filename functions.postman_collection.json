@@ -1,0 +1,1262 @@
+{
+	"info": {
+		"_postman_id": "f5775bcf-3379-47fb-899a-970df0b1b1e2",
+		"name": "functions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22435806"
+	},
+	"item": [
+		{
+			"name": "addLikesToUserProfile",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"  const reqObject = {\r",
+							"    url: \"https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=<APP_KEY>\", \r",
+							"    method: 'POST',\r",
+							"    header: 'Content-Type:application/json',\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({ \"email\": \"<EMAIL>\", \"password\": \"<PASSWORD>\", \"returnSecureToken\": true }) \r",
+							"    } \r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(reqObject, (err, res) => {\r",
+							"    const idToken = res.json().idToken;  \r",
+							"    pm.environment.set(\"FIREBASE_TOKEN\", idToken); \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{FIREBASE_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"userId\":\"rtDQSiV1y6YFlldpmzxJcwI3\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "<url>/addLikesTouserProfile",
+					"host": [
+						"<url>"
+					],
+					"path": [
+						"addLikesTouserProfile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addLikeToPost",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"  const reqObject = {\r",
+							"    url: \"https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=<APP_KEY>\", \r",
+							"    method: 'POST',\r",
+							"    header: 'Content-Type:application/json',\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({ \"email\": \"<EMAIL>\", \"password\": \"<PASSWORD>\", \"returnSecureToken\": true }) \r",
+							"    } \r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(reqObject, (err, res) => {\r",
+							"    const idToken = res.json().idToken;  \r",
+							"    pm.environment.set(\"FIREBASE_TOKEN\", idToken); \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{FIREBASE_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"postId\":\"stFoAxjfk4ahfEjJyDGu\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "<url>/addLikeToPost",
+					"host": [
+						"<url>"
+					],
+					"path": [
+						"addLikeToPost"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addLikeToSchoolProfile",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"  const reqObject = {\r",
+							"    url: \"https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=<APP_KEY>\", \r",
+							"    method: 'POST',\r",
+							"    header: 'Content-Type:application/json',\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({ \"email\": \"<EMAIL>\", \"password\": \"<PASSWORD>\", \"returnSecureToken\": true }) \r",
+							"    } \r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(reqObject, (err, res) => {\r",
+							"    const idToken = res.json().idToken;  \r",
+							"    pm.environment.set(\"FIREBASE_TOKEN\", idToken); \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{FIREBASE_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"schoolProfileId\":\"BG4VV9jyplMqQuJ1V\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "<url>/addLikeToSchoolProfile",
+					"host": [
+						"<url>"
+					],
+					"path": [
+						"addLikeToSchoolProfile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addLikeToSong",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"  const reqObject = {\r",
+							"    url: \"https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=<APP_KEY>\", \r",
+							"    method: 'POST',\r",
+							"    header: 'Content-Type:application/json',\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({ \"email\": \"<EMAIL>\", \"password\": \"<PASSWORD>\", \"returnSecureToken\": true }) \r",
+							"    } \r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(reqObject, (err, res) => {\r",
+							"    const idToken = res.json().idToken;  \r",
+							"    pm.environment.set(\"FIREBASE_TOKEN\", idToken); \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{FIREBASE_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"songId\":\"rxZTgvzIEAnrU3dv5\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "<url>/addLikeToSong",
+					"host": [
+						"<url>"
+					],
+					"path": [
+						"addLikeToSong"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addStudentToCourse",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"  const reqObject = {\r",
+							"    url: \"https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=<APP_KEY>\", \r",
+							"    method: 'POST',\r",
+							"    header: 'Content-Type:application/json',\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({ \"email\": \"<EMAIL>\", \"password\": \"<PASSWORD>\", \"returnSecureToken\": true }) \r",
+							"    } \r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(reqObject, (err, res) => {\r",
+							"    const idToken = res.json().idToken;  \r",
+							"    pm.environment.set(\"FIREBASE_TOKEN\", idToken); \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{FIREBASE_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"courseId\":\"xlSqtqxzTlcVd9Lcd\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "<url>/addPersonToCourse",
+					"host": [
+						"<url>"
+					],
+					"path": [
+						"addPersonToCourse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addPersonToDanceClass",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"  const reqObject = {\r",
+							"    url: \"https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=<APP_KEY>\", \r",
+							"    method: 'POST',\r",
+							"    header: 'Content-Type:application/json',\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({ \"email\": \"<EMAIL>\", \"password\": \"<PASSWORD>\", \"returnSecureToken\": true }) \r",
+							"    } \r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(reqObject, (err, res) => {\r",
+							"    const idToken = res.json().idToken;  \r",
+							"    pm.environment.set(\"FIREBASE_TOKEN\", idToken); \r",
+							"\r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{FIREBASE_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"danceClassId\":\"MsJNBgqG9dTR1m02a\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "<url>/addPersonToDanceClass",
+					"host": [
+						"<url>"
+					],
+					"path": [
+						"addPersonToDanceClass"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cancelCourse",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"  const reqObject = {\r",
+							"    url: \"https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=<APP_KEY>\", \r",
+							"    method: 'POST',\r",
+							"    header: 'Content-Type:application/json',\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({ \"email\": \"<EMAIL>\", \"password\": \"<PASSWORD>\", \"returnSecureToken\": true }) \r",
+							"    } \r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(reqObject, (err, res) => {\r",
+							"    const idToken = res.json().idToken;  \r",
+							"    pm.environment.set(\"FIREBASE_TOKEN\", idToken); \r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{FIREBASE_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"courseId\":\"xFDlNPMhmf85hjb2eee\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "<url>/cancelDanceCourse",
+					"host": [
+						"<url>"
+					],
+					"path": [
+						"cancelDanceCourse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cancelDanceClasses",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"  const reqObject = {\r",
+							"    url: \"https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=<APP_KEY>\", \r",
+							"    method: 'POST',\r",
+							"    header: 'Content-Type:application/json',\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({ \"email\": \"<EMAIL>\", \"password\": \"<PASSWORD>\", \"returnSecureToken\": true }) \r",
+							"    } \r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(reqObject, (err, res) => {\r",
+							"    const idToken = res.json().idToken;  \r",
+							"    pm.environment.set(\"FIREBASE_TOKEN\", idToken); \r",
+							"\r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{FIREBASE_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"danceClassId\":\"07Rkq4jHnNVFeUTtb\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "<url>/cancelDanceClasses",
+					"host": [
+						"<url>"
+					],
+					"path": [
+						"cancelDanceClasses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "completeDanceClass",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"  const reqObject = {\r",
+							"    url: \"https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=<APP_KEY>\", \r",
+							"    method: 'POST',\r",
+							"    header: 'Content-Type:application/json',\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({ \"email\": \"<EMAIL>\", \"password\": \"<PASSWORD>\", \"returnSecureToken\": true }) \r",
+							"    } \r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(reqObject, (err, res) => {\r",
+							"    const idToken = res.json().idToken;  \r",
+							"    pm.environment.set(\"FIREBASE_TOKEN\", idToken); \r",
+							"\r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{FIREBASE_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"id\":\"prnAs0tfqVSBwyOX7m0qsaM02\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "<url>/completeDanceClass",
+					"host": [
+						"<url>"
+					],
+					"path": [
+						"completeDanceClass"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"  const reqObject = {\r",
+							"    url: \"https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=<APP_KEY>\", \r",
+							"    method: 'POST',\r",
+							"    header: 'Content-Type:application/json',\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({ \"email\": \"<EMAIL>\", \"password\": \"<PASSWORD>\", \"returnSecureToken\": true }) \r",
+							"    } \r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(reqObject, (err, res) => {\r",
+							"    const idToken = res.json().idToken;  \r",
+							"    pm.environment.set(\"FIREBASE_TOKEN\", idToken); \r",
+							"\r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{FIREBASE_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"id\":\"prnAs0tqVSBwyOX7m0qsaM02\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "<url>/createUser",
+					"host": [
+						"<url>"
+					],
+					"path": [
+						"createUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "generateClassesFor1Weeks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"  const reqObject = {\r",
+							"    url: \"https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=<APP_KEY>\", \r",
+							"    method: 'POST',\r",
+							"    header: 'Content-Type:application/json',\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({ \"email\": \"<EMAIL>\", \"password\": \"<PASSWORD>\", \"returnSecureToken\": true }) \r",
+							"    } \r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(reqObject, (err, res) => {\r",
+							"    const idToken = res.json().idToken;  \r",
+							"    pm.environment.set(\"FIREBASE_TOKEN\", idToken); \r",
+							"\r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{FIREBASE_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"id\":\"prnAs0tqVSBwyOX7m0qsaM02\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "<url>/generateClassesFor1Week",
+					"host": [
+						"<url>"
+					],
+					"path": [
+						"generateClassesFor1Week"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"  const reqObject = {\r",
+							"    url: \"https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=<APP_KEY>\", \r",
+							"    method: 'POST',\r",
+							"    header: 'Content-Type:application/json',\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({ \"email\": \"<EMAIL>\", \"password\": \"<PASSWORD>\", \"returnSecureToken\": true }) \r",
+							"    } \r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(reqObject, (err, res) => {\r",
+							"    const idToken = res.json().idToken;  \r",
+							"    pm.environment.set(\"FIREBASE_TOKEN\", idToken); \r",
+							"\r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{FIREBASE_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"id\":\"prnAs0tqVSBwyOX7m0qsaM02\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "<url>/getUser",
+					"host": [
+						"<url>"
+					],
+					"path": [
+						"getUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserProfileData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"  const reqObject = {\r",
+							"    url: \"https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=<APP_KEY>\", \r",
+							"    method: 'POST',\r",
+							"    header: 'Content-Type:application/json',\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({ \"email\": \"<EMAIL>\", \"password\": \"<PASSWORD>\", \"returnSecureToken\": true }) \r",
+							"    } \r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(reqObject, (err, res) => {\r",
+							"    const idToken = res.json().idToken;  \r",
+							"    pm.environment.set(\"FIREBASE_TOKEN\", idToken); \r",
+							"\r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{FIREBASE_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"id\":\"prnAs0tqVSBwyOX7m0qsaM02\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "<url>/getUserProfileData",
+					"host": [
+						"<url>"
+					],
+					"path": [
+						"getUserProfileData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "apiGooglePlaces",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"  const reqObject = {\r",
+							"    url: \"https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=<APP_KEY>\", \r",
+							"    method: 'POST',\r",
+							"    header: 'Content-Type:application/json',\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({ \"email\": \"<EMAIL>\", \"password\": \"<PASSWORD>\", \"returnSecureToken\": true }) \r",
+							"    } \r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(reqObject, (err, res) => {\r",
+							"    const idToken = res.json().idToken;  \r",
+							"    pm.environment.set(\"FIREBASE_TOKEN\", idToken); \r",
+							"\r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{FIREBASE_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"id\":\"prnAs0tqVSBwyOX7m0qsaM02\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "<url>/apiGooglePlaces",
+					"host": [
+						"<url>"
+					],
+					"path": [
+						"apiGooglePlaces"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "removeStudentsFromCourse",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"  const reqObject = {\r",
+							"    url: \"https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=<APP_KEY>\", \r",
+							"    method: 'POST',\r",
+							"    header: 'Content-Type:application/json',\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({ \"email\": \"<EMAIL>\", \"password\": \"<PASSWORD>\", \"returnSecureToken\": true }) \r",
+							"    } \r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(reqObject, (err, res) => {\r",
+							"    const idToken = res.json().idToken;  \r",
+							"    pm.environment.set(\"FIREBASE_TOKEN\", idToken); \r",
+							"\r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{FIREBASE_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"id\":\"prnAs0tqVSBwyOX7m0qsaM02\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "<url>/removeStudentsFromCourse",
+					"host": [
+						"<url>"
+					],
+					"path": [
+						"removeStudentsFromCourse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "removeStudentsFromDanceClass",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"  const reqObject = {\r",
+							"    url: \"https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=<APP_KEY>\", \r",
+							"    method: 'POST',\r",
+							"    header: 'Content-Type:application/json',\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({ \"email\": \"<EMAIL>\", \"password\": \"<PASSWORD>\", \"returnSecureToken\": true }) \r",
+							"    } \r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(reqObject, (err, res) => {\r",
+							"    const idToken = res.json().idToken;  \r",
+							"    pm.environment.set(\"FIREBASE_TOKEN\", idToken); \r",
+							"\r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{FIREBASE_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"id\":\"prnAs0tqVSBwyOX7m0qsaM02\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "<url>/removeStudentsFromDanceClass",
+					"host": [
+						"<url>"
+					],
+					"path": [
+						"removeStudentsFromDanceClass"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "setUserClaims",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"  const reqObject = {\r",
+							"    url: \"https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=<APP_KEY>\", \r",
+							"    method: 'POST',\r",
+							"    header: 'Content-Type:application/json',\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({ \"email\": \"<EMAIL>\", \"password\": \"<PASSWORD>\", \"returnSecureToken\": true }) \r",
+							"    } \r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(reqObject, (err, res) => {\r",
+							"    const idToken = res.json().idToken;  \r",
+							"    pm.environment.set(\"FIREBASE_TOKEN\", idToken); \r",
+							"\r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{FIREBASE_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"id\":\"prnAs0tqVSBwyOX7m0qsaM02\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "<url>/setUserClaims",
+					"host": [
+						"<url>"
+					],
+					"path": [
+						"setUserClaims"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userSignOutFromDanceClasses",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"  const reqObject = {\r",
+							"    url: \"https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=<APP_KEY>\", \r",
+							"    method: 'POST',\r",
+							"    header: 'Content-Type:application/json',\r",
+							"    body: {\r",
+							"        mode: 'raw',\r",
+							"        raw: JSON.stringify({ \"email\": \"<EMAIL>\", \"password\": \"<PASSWORD>\", \"returnSecureToken\": true }) \r",
+							"    } \r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(reqObject, (err, res) => {\r",
+							"    const idToken = res.json().idToken;  \r",
+							"    pm.environment.set(\"FIREBASE_TOKEN\", idToken); \r",
+							"\r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{FIREBASE_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"danceClassId\":\"YlPlLkbP5hdjdxp28R0bw9F6\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "<url>/userSignOutFromDanceClasses",
+					"host": [
+						"<url>"
+					],
+					"path": [
+						"userSignOutFromDanceClasses"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "FIREBASE_TOKEN",
+			"value": "idToken",
+			"type": "string"
+		}
+	]
+}
